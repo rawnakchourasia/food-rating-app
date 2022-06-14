@@ -5,16 +5,36 @@ class Header extends React.Component {
   logoutUser = () => {
     const { currentUserId } = this.props;
     this.props.dispatch(logOutUser(currentUserId));
-    // console.log(currentUserId);
   };
 
   render() {
-    const { isLoggedIn } = this.props;
-    // console.log(isLoggedIn);
+    const { isLoggedIn, currentUserId, allUsers } = this.props;
+    var userName;
+    for (var i = 0; i < allUsers.length; i++) {
+      if (currentUserId === allUsers[i].id) {
+        userName = allUsers[i].username;
+        break;
+      }
+    }
+
     return (
-      <div>
-        {!isLoggedIn ? <div>Dish Poll App</div> : <div>Hi User</div>}
-        {isLoggedIn ? <button onClick={this.logoutUser}>Logout</button> : null}
+      <div className="headerc">
+        {!isLoggedIn ? (
+          <div>Dish Poll App</div>
+        ) : (
+          <div>
+            Hi{' '}
+            <span className="capitalize">
+              {userName.charAt(0).toUpperCase() + userName.slice(1)}
+            </span>
+            !
+          </div>
+        )}
+        {isLoggedIn ? (
+          <button onClick={this.logoutUser} className="logoutButton">
+            Logout
+          </button>
+        ) : null}
       </div>
     );
   }

@@ -1,38 +1,47 @@
 import React from 'react';
 import { logInUser } from '../actions';
-// import dataInFlow from '../globalVariables';
 
 class SingleUser extends React.Component {
   showPassInput = (id) => {
     const { user } = this.props;
     var pass = document.getElementsByClassName('getPass');
-    // console.log(pass[id - 1].value);
-    // console.log(id);
 
     var receivedPass = pass[id - 1].value;
     var storedPass = user.password;
 
     if (receivedPass === storedPass) {
       this.props.dispatch(logInUser(id));
-      console.log('Logging in');
     } else {
-      alert('Please try again');
+      alert('Wrong Password! Please try again..');
     }
   };
 
   render() {
-    const { isLoggedIn, user } = this.props;
-
+    const { user } = this.props;
+    // userName.charAt(0).toUpperCase() + userName.slice(1);
+    const userName = user.username;
     return (
-      <div>
-        <div>{user.username}</div>
-        <div>
-          <input
-            type="password"
-            className="getPass"
-            placeholder={user.password}
-          ></input>
-          <button onClick={() => this.showPassInput(user.id)}>Log In</button>
+      <div className="singleUserBox">
+        <div className="singleuserimgname">
+          <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"></img>
+          <div>{userName.charAt(0).toUpperCase() + userName.slice(1)}</div>
+        </div>
+
+        <div className="inputandbuttons">
+          <div className="inputField">
+            Password : &nbsp;
+            <input
+              type="password"
+              className="getPass"
+              placeholder={user.password}
+            ></input>
+          </div>
+          <button
+            onClick={() => this.showPassInput(user.id)}
+            className="buttonLogIn"
+          >
+            Log In
+          </button>
         </div>
       </div>
     );

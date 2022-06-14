@@ -3,12 +3,11 @@ import SingleUser from './SingleUser';
 
 class Login extends React.Component {
   render() {
-    const { isLoggedIn, usersList, dispatch } = this.props;
-    console.log(usersList);
+    const { usersList } = this.props;
     return (
-      <div>
-        <div>Log In As</div>
-        <div>
+      <div className="loginAll">
+        <div className="logText">Log In As</div>
+        <div className="loginUsersList">
           {usersList.map((user, index) => (
             <SingleUser
               user={user}

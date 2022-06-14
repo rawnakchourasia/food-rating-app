@@ -11,3 +11,96 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* HEADER */
+.headerc {
+  height: 100px;
+  background: rgb(31, 30, 30);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  font-size: 25px;
+}
+.logoutButton {
+  outline: none;
+  background: wheat;
+  color: black;
+  height: 40px;
+  width: 100px;
+  font-size: 15px;
+  font-family: monospace;
+  cursor: pointer;
+}
+.logoutButton:hover {
+  background: rgb(255, 204, 109);
+}
+
+/* LOGIN PAGE */
+.loginAll {
+  background: linear-gradient(180deg, #bbe0ff, transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.logText {
+  font-size: 40px;
+  font-weight: 900;
+}
+.loginUsersList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* SINGLE USER */
+.singleUserBox {
+  height: 150px;
+  border: 1px solid #ccc;
+  background-color: rgb(105, 105, 105);
+  margin: 25px;
+  border-radius: 10px;
+}
+.singleuserimgname img {
+  height: 70px;
+  width: 70px;
+}
+.singleuserimgname {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+  align-items: center;
+  color: honeydew;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.inputandbuttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 15px;
+}
+.inputField {
+  padding: 1px 10px;
+  font-weight: 500;
+}
+.buttonLogIn {
+  outline: none;
+  background: rgb(255, 255, 255);
+  color: black;
+  height: 30px;
+  width: 100px;
+  font-size: 14px;
+  font-family: monospace;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.capitalize::first-letter {
+  text-transform: capitalize;
+}
