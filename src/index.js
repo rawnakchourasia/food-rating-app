@@ -8,8 +8,8 @@ import reportWebVitals from './reportWebVitals';
 import dishPoll from './reducers';
 
 const store = createStore(dishPoll);
-console.log('store', store);
-console.log('store state', store.getState());
+// console.log('store', store);
+// console.log('store state', store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

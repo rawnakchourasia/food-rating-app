@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class InsideApp extends Component {
+class InsideApp extends React.Component {
   render() {
     return <div>Inside the App Page</div>;
   }
