@@ -24,6 +24,7 @@ class App extends React.Component {
   render() {
     const { usersList, currentUserId, isLoggedIn } =
       this.props.store.getState();
+    // console.log(this.props.store.getState());
 
     return (
       <div className="app">
@@ -32,7 +33,11 @@ class App extends React.Component {
           currentUserId={currentUserId}
           dispatch={this.props.store.dispatch}
         />
-        {isLoggedIn ? <InsideApp /> : <Login />}
+        {isLoggedIn ? (
+          <InsideApp />
+        ) : (
+          <Login usersList={usersList} dispatch={this.props.store.dispatch} />
+        )}
       </div>
     );
   }

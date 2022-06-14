@@ -1,10 +1,15 @@
-import { ADD_ALL_USERS, ADD_ALL_DISHES, LOG_OUT_USER } from '../actions';
+import {
+  ADD_ALL_USERS,
+  ADD_ALL_DISHES,
+  LOG_OUT_USER,
+  LOG_IN_USER,
+} from '../actions';
 
 const initialUserDishesState = {
   usersList: [],
   dishesList: [],
-  isLoggedIn: true,
-  currentUserId: 2,
+  isLoggedIn: false,
+  currentUserId: 0,
 };
 
 export default function dishPoll(state = initialUserDishesState, action) {
@@ -22,11 +27,18 @@ export default function dishPoll(state = initialUserDishesState, action) {
         dishesList: action.allDishes,
       };
     case LOG_OUT_USER:
-      //   console.log('ACTION', action);
+      console.log('ACTION', action);
       return {
         ...state,
         isLoggedIn: false,
         currentUserId: 0,
+      };
+    case LOG_IN_USER:
+      console.log('ACTION', action);
+      return {
+        ...state,
+        isLoggedIn: true,
+        currentUserId: action.userId,
       };
     default:
       //   console.log('ACTION', action);
