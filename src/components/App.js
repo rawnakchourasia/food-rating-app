@@ -19,8 +19,14 @@ class App extends React.Component {
   }
 
   render() {
-    const { usersList, currentUserId, isLoggedIn } =
-      this.props.store.getState();
+    const {
+      usersList,
+      currentUserId,
+      isLoggedIn,
+      userPreferences,
+      dishesList,
+    } = this.props.store.getState();
+    console.log(userPreferences);
 
     return (
       <div className="app">
@@ -31,7 +37,12 @@ class App extends React.Component {
           dispatch={this.props.store.dispatch}
         />
         {isLoggedIn ? (
-          <InsideApp />
+          <InsideApp
+            userPreferences={userPreferences}
+            currentUserId={currentUserId}
+            dishesList={dishesList}
+            dispatch={this.props.store.dispatch}
+          />
         ) : (
           <Login usersList={usersList} dispatch={this.props.store.dispatch} />
         )}

@@ -3,6 +3,8 @@ import {
   ADD_ALL_DISHES,
   LOG_OUT_USER,
   LOG_IN_USER,
+  REMOVE_ONE_DISH,
+  REMOVE_ALL_DISHES,
 } from '../actions';
 
 const initialUserDishesState = {
@@ -35,7 +37,7 @@ const initialUserDishesState = {
     {
       4: {
         rank1: 9,
-        rank2: 4,
+        rank2: 30,
         rank3: 1,
       },
     },
@@ -76,6 +78,34 @@ export default function dishPoll(state = initialUserDishesState, action) {
         ...state,
         isLoggedIn: true,
         currentUserId: action.userId,
+      };
+    case REMOVE_ONE_DISH:
+      //   console.log('ACTION', action);
+      var userid = action.userPosnDish[0];
+      var tempUserPreference = initialUserDishesState.userPreferences;
+      var values = Object.values(tempUserPreference[userid - 1])[0];
+      if (action.userPosnDish[1] === 1) {
+        values.rank1 = 0;
+      } else if (action.userPosnDish[1] === 2) {
+        values.rank2 = 0;
+      } else {
+        values.rank3 = 0;
+      }
+      return {
+        ...state,
+        userPreferences: tempUserPreference,
+      };
+    case REMOVE_ALL_DISHES:
+      //   console.log('ACTION', action);
+      userid = action.userId;
+      tempUserPreference = initialUserDishesState.userPreferences;
+      values = Object.values(tempUserPreference[userid - 1])[0];
+      values.rank1 = 0;
+      values.rank2 = 0;
+      values.rank3 = 0;
+      return {
+        ...state,
+        userPreferences: tempUserPreference,
       };
     default:
       //   console.log('ACTION', action);

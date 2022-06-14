@@ -23,7 +23,10 @@ class SingleUser extends React.Component {
     return (
       <div className="singleUserBox">
         <div className="singleuserimgname">
-          <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"></img>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+            alt="user"
+          ></img>
           <div>{userName.charAt(0).toUpperCase() + userName.slice(1)}</div>
         </div>
 
