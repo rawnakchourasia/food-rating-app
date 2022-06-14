@@ -7,6 +7,7 @@ import InsideApp from './InsideApp';
 import Header from './Header';
 
 class App extends React.Component {
+  //SETTING THE STATE AS WHEN COMPONENT IS MOUNTED
   componentDidMount() {
     const { store } = this.props;
 

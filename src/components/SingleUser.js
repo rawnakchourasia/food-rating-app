@@ -2,6 +2,7 @@ import React from 'react';
 import { logInUser } from '../actions';
 
 class SingleUser extends React.Component {
+  //LOGGING IN USER WITH PASSWORD
   showPassInput = (id) => {
     const { user } = this.props;
     var pass = document.getElementsByClassName('getPass');
@@ -9,6 +10,7 @@ class SingleUser extends React.Component {
     var receivedPass = pass[id - 1].value;
     var storedPass = user.password;
 
+    //CHECKING THE PASSWORD, IF INCORRECT ALERT MESSAGE
     if (receivedPass === storedPass) {
       this.props.dispatch(logInUser(id));
     } else {

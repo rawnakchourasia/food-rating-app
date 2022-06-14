@@ -2,10 +2,12 @@ import React from 'react';
 import { removeOneDish, removeAllDishes } from '../actions';
 
 class YourPolls extends React.Component {
+  //TO DELETE A SINGLE ITEM FROM THE USER SELECTION
   deleteSingleItem = (userPosnDish) => {
     this.props.dispatch(removeOneDish(userPosnDish));
   };
 
+  //TO DELETE ALL THE SELECTED ITEMS OF THE USER
   deleteAllItems = (userId) => {
     this.props.dispatch(removeAllDishes(userId));
   };
@@ -13,6 +15,8 @@ class YourPolls extends React.Component {
   render() {
     const { userPreferences, currentUserId, dishesList } = this.props;
     var exactUserPoll;
+
+    //GETTING KEYS AND VALUES OF LOGGED IN USER'S CHOICE OF DISH
     for (var i = 0; i < userPreferences.length; i++) {
       var key = Object.keys(userPreferences[i])[0];
 
@@ -22,6 +26,8 @@ class YourPolls extends React.Component {
         break;
       }
     }
+
+    //STORING THE DISH CHOICES OF CURRENT USER
     var dishItemIds = [
       exactUserPoll.rank1,
       exactUserPoll.rank2,
@@ -41,7 +47,6 @@ class YourPolls extends React.Component {
       }
       i++;
     }
-    // console.log(dishItemNames);
 
     return (
       <div className="yourPollsDiv">

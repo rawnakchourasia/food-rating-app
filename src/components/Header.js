@@ -2,6 +2,7 @@ import React from 'react';
 import { logOutUser } from '../actions';
 
 class Header extends React.Component {
+  //FOR LOGGING OUT USER
   logoutUser = () => {
     const { currentUserId } = this.props;
     this.props.dispatch(logOutUser(currentUserId));
