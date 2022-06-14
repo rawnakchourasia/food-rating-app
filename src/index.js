@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createStore } from 'redux';
+
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import dishPoll from './reducers';
+
+const store = createStore(dishPoll);
+console.log('store', store);
+console.log('store state', store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App store={store} />
   </React.StrictMode>
 );
 
