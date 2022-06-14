@@ -5,6 +5,7 @@ import {
   LOG_IN_USER,
   REMOVE_ONE_DISH,
   REMOVE_ALL_DISHES,
+  CHANGE_THE_TAB,
 } from '../actions';
 
 const initialUserDishesState = {
@@ -12,6 +13,7 @@ const initialUserDishesState = {
   dishesList: [],
   isLoggedIn: true,
   currentUserId: 4,
+  dishesTabSelected: false,
   userPreferences: [
     {
       1: {
@@ -106,6 +108,12 @@ export default function dishPoll(state = initialUserDishesState, action) {
       return {
         ...state,
         userPreferences: tempUserPreference,
+      };
+    case CHANGE_THE_TAB:
+      //   console.log('ACTION', action);
+      return {
+        ...state,
+        dishesTabSelected: action.val,
       };
     default:
       //   console.log('ACTION', action);

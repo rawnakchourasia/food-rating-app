@@ -104,7 +104,7 @@ code {
 
 /* YOUR POLLS */
 .yourPollsDiv {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -175,6 +175,25 @@ code {
 }
 .noDishName {
   color: #ccc;
+}
+
+/* INSIDE APP */
+.tabs {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tab {
+  border: 1px solid green;
+  margin: 10px 0 0px 0;
+  padding: 15px 25px 15px 30px;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.selectedTab {
+  background: #bbe0ff;
 }
 
 .capitalize::first-letter {

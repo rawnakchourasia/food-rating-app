@@ -25,8 +25,9 @@ class App extends React.Component {
       isLoggedIn,
       userPreferences,
       dishesList,
+      dishesTabSelected,
     } = this.props.store.getState();
-    console.log(userPreferences);
+    // console.log(dishesTabSelected);
 
     return (
       <div className="app">
@@ -41,6 +42,7 @@ class App extends React.Component {
             userPreferences={userPreferences}
             currentUserId={currentUserId}
             dishesList={dishesList}
+            dishesTabSelected={dishesTabSelected}
             dispatch={this.props.store.dispatch}
           />
         ) : (

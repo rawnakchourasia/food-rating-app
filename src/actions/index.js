@@ -5,6 +5,7 @@ export const LOG_OUT_USER = 'LOG_OUT_USER';
 export const LOG_IN_USER = 'LOG_IN_USER';
 export const REMOVE_ONE_DISH = 'REMOVE_ONE_DISH';
 export const REMOVE_ALL_DISHES = 'REMOVE_ALL_DISHES';
+export const CHANGE_THE_TAB = 'CHANGE_THE_TAB';
 
 // ACTION CREATORS
 export function addAllUsers(allUsers) {
@@ -46,5 +47,12 @@ export function removeAllDishes(userId) {
   return {
     type: REMOVE_ALL_DISHES,
     userId: userId,
+  };
+}
+
+export function changeTheTab(val) {
+  return {
+    type: CHANGE_THE_TAB,
+    val: val,
   };
 }

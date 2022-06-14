@@ -41,7 +41,7 @@ class YourPolls extends React.Component {
       }
       i++;
     }
-    console.log(dishItemNames);
+    // console.log(dishItemNames);
 
     return (
       <div className="yourPollsDiv">
