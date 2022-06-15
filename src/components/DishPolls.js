@@ -1,8 +1,9 @@
 import React from 'react';
+import SingleDishPoll from './SingleDishPoll';
 
 class DishPolls extends React.Component {
   render() {
-    const { dishesList, userPreferences } = this.props;
+    const { dishesList, userPreferences, currentUserId } = this.props;
     var finalArray = [];
     var scoresList = [];
     var rank1List = [];
@@ -67,12 +68,48 @@ class DishPolls extends React.Component {
       finalArray.push(obj);
     }
 
-    console.log(finalArray);
+    var exactUserPoll;
+
+    //GETTING KEYS AND VALUES OF LOGGED IN USER'S CHOICE OF DISH
+    for (var i = 0; i < userPreferences.length; i++) {
+      var key = Object.keys(userPreferences[i])[0];
+
+      if (currentUserId === parseInt(key)) {
+        var pollObject = userPreferences[i];
+        exactUserPoll = Object.values(pollObject)[0];
+        break;
+      }
+    }
+
+    //STORING THE DISH CHOICES OF CURRENT USER
+    var dishItemIds = [
+      exactUserPoll.rank1,
+      exactUserPoll.rank2,
+      exactUserPoll.rank3,
+    ];
+
+    console.log(dishItemIds);
 
     return (
       <div>
-        This is DishPolls
-        <div>This is DishPolls</div>;<div className="pollListContainer"></div>
+        <div className="tableHead">
+          <div>Dish</div>
+          <div style={{ paddingLeft: 40 }}>Dish Name</div>
+          <div>Poll Score</div>
+        </div>
+        <div className="pollListContainer">
+          {finalArray.map((dish, index) => (
+            <SingleDishPoll
+              dish={dish}
+              key={`users-${index}`}
+              dispatch={this.props.dispatch}
+              finalArray={finalArray}
+              dishItemIds={dishItemIds}
+            />
+          ))}
+        </div>
+        <br></br>
+        <br></br>
       </div>
     );
   }

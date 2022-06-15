@@ -49,6 +49,7 @@ class InsideApp extends React.Component {
           <DishPolls
             dishesList={dishesList}
             userPreferences={userPreferences}
+            currentUserId={currentUserId}
           />
         )}
       </div>
