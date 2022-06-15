@@ -2,7 +2,7 @@ import React from 'react';
 
 class SingleDishPoll extends React.Component {
   render() {
-    const { dish, finalArray, dishItemIds } = this.props;
+    const { dish, dishItemIds } = this.props;
 
     // SELECTING WHICH ITEM HAS BEEN RANKED BY THE USER
     var dishRankOfUser;
@@ -28,6 +28,7 @@ class SingleDishPoll extends React.Component {
         {dishRankOfUser !== null ? (
           <div className="yourPollRank">Your Poll : {dishRankOfUser}</div>
         ) : null}
+        <div></div>
       </div>
     );
   }

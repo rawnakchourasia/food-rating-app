@@ -201,6 +201,7 @@ code {
 }
 .selectedTab {
   background: #bbe0ff;
+  transition: 0.4s;
 }
 
 /* DISH POLLS */
@@ -212,6 +213,8 @@ code {
   margin: 20px 150px 0 150px;
   font-size: 16px;
   font-weight: 600;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 /* SINGLE DISH POLL */
@@ -316,4 +319,55 @@ code {
   margin: 2px;
   user-select: none;
   cursor: pointer;
+}
+.backgroundSelected {
+  background: #91ffb9;
+}
+.backgroundSelected1 {
+  background: #ffb1a5;
+}
+
+/* MOBILE FRIENDLY - RESPONSIVENESS */
+@media screen and (max-width: 750px) {
+  .actualPolls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rankdiv {
+    width: unset;
+    margin: unset;
+    font-size: 20px;
+  }
+  .clearbuttondiv {
+    margin-top: 10px;
+    margin-left: 120px;
+  }
+  .tabs {
+    margin-top: 20px;
+  }
+  .tableHead {
+    /* display: none; */
+    margin: 20px 10px 0 10px;
+  }
+  .singleRowDish {
+    margin: 0px 10px 0 10px;
+  }
+  .singleRowDishDetails {
+    font-size: 14px;
+  }
+  .dishInPageContainer {
+    margin: 0px 10px 5px 10px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+  }
+  .dishInPageContainer div {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  }
+  .rankingsSelect {
+    margin-top: 12px !important;
+    flex-direction: row;
+  }
 }

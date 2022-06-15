@@ -6,13 +6,14 @@ import {
   REMOVE_ONE_DISH,
   REMOVE_ALL_DISHES,
   CHANGE_THE_TAB,
+  CHANGE_USER_PREFERENCE,
 } from '../actions';
 
 const initialUserDishesState = {
   usersList: [],
   dishesList: [],
-  isLoggedIn: true,
-  currentUserId: 4,
+  isLoggedIn: false,
+  currentUserId: 0,
   dishesTabSelected: true,
   userPreferences: [
     {
@@ -73,6 +74,7 @@ export default function dishPoll(state = initialUserDishesState, action) {
         ...state,
         isLoggedIn: false,
         currentUserId: 0,
+        dishesTabSelected: true,
       };
     case LOG_IN_USER:
       //   console.log('ACTION', action);
@@ -114,6 +116,43 @@ export default function dishPoll(state = initialUserDishesState, action) {
       return {
         ...state,
         dishesTabSelected: action.val,
+      };
+    case CHANGE_USER_PREFERENCE:
+      // console.log('ACTION', action);
+
+      userid = action.obj.custId;
+      tempUserPreference = initialUserDishesState.userPreferences;
+      values = Object.values(tempUserPreference[userid - 1])[0];
+
+      if (values.rank1 === action.obj.dishId) {
+        values.rank1 = 0;
+      }
+      if (values.rank2 === action.obj.dishId) {
+        values.rank2 = 0;
+      }
+      if (values.rank3 === action.obj.dishId) {
+        values.rank3 = 0;
+      }
+
+      if (action.obj.rank === 'Rank 1') {
+        values.rank1 = action.obj.dishId;
+      } else if (action.obj.rank === 'Rank 2') {
+        values.rank2 = action.obj.dishId;
+      } else if (action.obj.rank === 'Rank 3') {
+        values.rank3 = action.obj.dishId;
+      } else if (action.obj.rank === 'No Rank') {
+        if (values.rank1 === action.obj.dishId) {
+          values.rank1 = 0;
+        } else if (values.rank2 === action.obj.dishId) {
+          values.rank2 = 0;
+        } else if (values.rank3 === action.obj.dishId) {
+          values.rank3 = 0;
+        }
+      }
+      console.log(action.obj);
+      return {
+        ...state,
+        userPreferences: tempUserPreference,
       };
     default:
       //   console.log('ACTION', action);
