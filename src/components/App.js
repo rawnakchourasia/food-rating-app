@@ -5,6 +5,7 @@ import { allDishes } from '../allDishes';
 import Login from './Login';
 import InsideApp from './InsideApp';
 import Header from './Header';
+import { Helmet } from 'react-helmet';
 
 class App extends React.Component {
   //SETTING THE STATE AS WHEN COMPONENT IS MOUNTED
@@ -32,6 +33,14 @@ class App extends React.Component {
 
     return (
       <div className="app">
+        {/* This is React-Helmet. I have used this to change the default React Name on the Tab */}
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Dish Poll</title>
+          {/* Down below is the link to my site */}
+          <link rel="canonical" href="http://codeparttime.com/" />
+          <meta name="description" content="Dish Poll Application" />
+        </Helmet>
         <Header
           isLoggedIn={isLoggedIn}
           currentUserId={currentUserId}
