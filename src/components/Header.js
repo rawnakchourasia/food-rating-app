@@ -10,6 +10,8 @@ class Header extends React.Component {
 
   render() {
     const { isLoggedIn, currentUserId, allUsers } = this.props;
+
+    //SETTING USERNAME
     var userName;
     for (var i = 0; i < allUsers.length; i++) {
       if (currentUserId === allUsers[i].id) {

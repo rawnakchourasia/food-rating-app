@@ -13,7 +13,7 @@ const initialUserDishesState = {
   usersList: [],
   dishesList: [],
   isLoggedIn: false,
-  currentUserId: 0,
+  currentUserId: 1,
   dishesTabSelected: true,
   userPreferences: [
     {
@@ -88,6 +88,7 @@ export default function dishPoll(state = initialUserDishesState, action) {
       var userid = action.userPosnDish[0];
       var tempUserPreference = initialUserDishesState.userPreferences;
       var values = Object.values(tempUserPreference[userid - 1])[0];
+      // REMOVING THAT DISH FROM LOGGED USER'S PREFERRED RANK
       if (action.userPosnDish[1] === 1) {
         values.rank1 = 0;
       } else if (action.userPosnDish[1] === 2) {
@@ -123,7 +124,7 @@ export default function dishPoll(state = initialUserDishesState, action) {
       userid = action.obj.custId;
       tempUserPreference = initialUserDishesState.userPreferences;
       values = Object.values(tempUserPreference[userid - 1])[0];
-
+      // CHECK BEFORE IF DISH IS ALREADY PRESENT IN ANY OTHER RANK
       if (values.rank1 === action.obj.dishId) {
         values.rank1 = 0;
       }
@@ -133,7 +134,7 @@ export default function dishPoll(state = initialUserDishesState, action) {
       if (values.rank3 === action.obj.dishId) {
         values.rank3 = 0;
       }
-
+      // CHANGE THE DISH IN USER'S PREFERRED RANK
       if (action.obj.rank === 'Rank 1') {
         values.rank1 = action.obj.dishId;
       } else if (action.obj.rank === 'Rank 2') {
@@ -141,6 +142,7 @@ export default function dishPoll(state = initialUserDishesState, action) {
       } else if (action.obj.rank === 'Rank 3') {
         values.rank3 = action.obj.dishId;
       } else if (action.obj.rank === 'No Rank') {
+        // IF NO RANK THEN MAKE THAT PARTICULAR RANK HOLD 0
         if (values.rank1 === action.obj.dishId) {
           values.rank1 = 0;
         } else if (values.rank2 === action.obj.dishId) {
@@ -149,7 +151,6 @@ export default function dishPoll(state = initialUserDishesState, action) {
           values.rank3 = 0;
         }
       }
-      console.log(action.obj);
       return {
         ...state,
         userPreferences: tempUserPreference,

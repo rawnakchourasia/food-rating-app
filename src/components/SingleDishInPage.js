@@ -3,7 +3,6 @@ import { changeUserPreference } from '../actions';
 
 class SingleDishInPage extends React.Component {
   changeUserPreference = (selectionDetails) => {
-    // console.log(selectionDetails);
     this.props.dispatch(changeUserPreference(selectionDetails));
   };
 
@@ -21,7 +20,7 @@ class SingleDishInPage extends React.Component {
     } else {
       dishRankOfUser = null;
     }
-    // console.log(dishRankOfUser);
+
     return (
       <div>
         <div className="dishInPageContainer">

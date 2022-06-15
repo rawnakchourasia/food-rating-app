@@ -10,7 +10,7 @@ class SingleUser extends React.Component {
     var receivedPass = pass[id - 1].value;
     var storedPass = user.password;
 
-    //CHECKING THE PASSWORD, IF INCORRECT ALERT MESSAGE
+    //CHECKING THE PASSWORD, IF INCORRECT, DISPLAY ALERT MESSAGE
     if (receivedPass === storedPass) {
       this.props.dispatch(logInUser(id));
     } else {
@@ -20,7 +20,6 @@ class SingleUser extends React.Component {
 
   render() {
     const { user } = this.props;
-    // userName.charAt(0).toUpperCase() + userName.slice(1);
     const userName = user.username;
     return (
       <div className="singleUserBox">

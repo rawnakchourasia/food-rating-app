@@ -19,7 +19,7 @@ class DishPolls extends React.Component {
     }
 
     //SCORE CALCULATION
-    for (var i = 0; i < dishesList.length; i++) {
+    for (i = 0; i < dishesList.length; i++) {
       var rank1count = 0;
       var rank2count = 0;
       var rank3count = 0;
@@ -43,8 +43,8 @@ class DishPolls extends React.Component {
     var temp = 0;
     var secondaryDishes = dishesList;
     var tempDishes;
-    for (var i = 0; i < scoresList.length; i++) {
-      for (var j = i; j < scoresList.length; j++) {
+    for (i = 0; i < scoresList.length; i++) {
+      for (j = i; j < scoresList.length; j++) {
         if (scoresList[j] > scoresList[i]) {
           temp = scoresList[j];
           scoresList[j] = scoresList[i];
@@ -58,7 +58,7 @@ class DishPolls extends React.Component {
     }
 
     //CREATING NEW OBJECT FOR FINAL ARRAY
-    for (var i = 0; i < scoresList.length; i++) {
+    for (i = 0; i < scoresList.length; i++) {
       var obj = {
         id: secondaryDishes[i].id,
         dishName: secondaryDishes[i].dishName,
@@ -71,8 +71,8 @@ class DishPolls extends React.Component {
     var exactUserPoll;
 
     //GETTING KEYS AND VALUES OF LOGGED IN USER'S CHOICE OF DISH
-    for (var i = 0; i < userPreferences.length; i++) {
-      var key = Object.keys(userPreferences[i])[0];
+    for (i = 0; i < userPreferences.length; i++) {
+      key = Object.keys(userPreferences[i])[0];
 
       if (currentUserId === parseInt(key)) {
         var pollObject = userPreferences[i];
