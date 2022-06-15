@@ -88,8 +88,6 @@ class DishPolls extends React.Component {
       exactUserPoll.rank3,
     ];
 
-    console.log(dishItemIds);
-
     return (
       <div>
         <div className="tableHead">

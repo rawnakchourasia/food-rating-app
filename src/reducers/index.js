@@ -13,7 +13,7 @@ const initialUserDishesState = {
   dishesList: [],
   isLoggedIn: true,
   currentUserId: 4,
-  dishesTabSelected: false,
+  dishesTabSelected: true,
   userPreferences: [
     {
       1: {

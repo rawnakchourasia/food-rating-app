@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.capitalize::first-letter {
+  text-transform: capitalize;
+}
+
 /* HEADER */
 .headerc {
   height: 100px;
@@ -40,7 +44,7 @@ code {
 
 /* LOGIN PAGE */
 .loginAll {
-  background: linear-gradient(180deg, #bbe0ff, transparent);
+  background: linear-gradient(180deg, #1f1e1e, transparent);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -49,6 +53,8 @@ code {
 .logText {
   font-size: 40px;
   font-weight: 900;
+  color: azure;
+  padding-top: 30px;
 }
 .loginUsersList {
   display: flex;
@@ -203,7 +209,7 @@ code {
   display: flex;
   justify-content: space-between;
   padding: 5px 12px 5px 40px;
-  margin: 20px 40px 0 40px;
+  margin: 20px 150px 0 150px;
   font-size: 16px;
   font-weight: 600;
 }
@@ -211,7 +217,7 @@ code {
 /* SINGLE DISH POLL */
 .singleRowDish {
   border: 1px solid #ccc;
-  margin: 0px 40px 0 40px;
+  margin: 0px 150px 0 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -230,6 +236,8 @@ code {
 .pollImage {
   height: 75px;
   width: 75px;
+  background: #ccc;
+  border-radius: 5px;
 }
 .yourPollRank {
   /* border: 1px solid blue; */
@@ -242,6 +250,70 @@ code {
   color: forestgreen;
 }
 
-.capitalize::first-letter {
-  text-transform: capitalize;
+/* DISHES PAGE */
+.dishesPageContainer {
+  margin-top: 20px;
+}
+
+/* SINGLE DISH IN PAGE */
+.dishInPageContainer {
+  border: 1px solid #ccc;
+  margin: 0px 150px 5px 150px;
+  border-radius: 3px;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.disnInPageImage {
+  height: 100px;
+  width: 100px;
+  background: #ccc;
+  border-radius: 5px;
+}
+.titanddes {
+  /* border: 1px solid green; */
+  width: 55%;
+  /* height: 107px; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+.titleOnly {
+  /* border: 1px solid grey; */
+  font-size: 16px;
+  font-weight: 800;
+  padding-top: 10px;
+  text-align: left;
+}
+.descriptionOnly {
+  /* border: 1px solid brown; */
+  font-size: 13px;
+  font-weight: 500;
+  padding-top: 10px;
+  text-align: left;
+  color: rgb(86, 86, 86);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.rankingsSelect {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.rankingsSelect div {
+  border: 1px solid gray;
+  padding: 2px;
+  font-weight: 800;
+  font-size: 14px;
+  font-family: monospace;
+  width: 60px;
+  text-align: center;
+  margin: 2px;
+  user-select: none;
+  cursor: pointer;
 }

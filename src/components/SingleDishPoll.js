@@ -3,8 +3,8 @@ import React from 'react';
 class SingleDishPoll extends React.Component {
   render() {
     const { dish, finalArray, dishItemIds } = this.props;
-    // console.log(dishItemIds);
-    console.log(dish.id);
+
+    // SELECTING WHICH ITEM HAS BEEN RANKED BY THE USER
     var dishRankOfUser;
     if (dish.id === dishItemIds[0]) {
       dishRankOfUser = 'Rank 1';
@@ -15,7 +15,7 @@ class SingleDishPoll extends React.Component {
     } else {
       dishRankOfUser = null;
     }
-    console.log(dishRankOfUser);
+
     return (
       <div className="singleRowDish">
         <div className="singleRowDishDetails">
